@@ -1,0 +1,26 @@
+[project]
+name = "financial-reporting-pipeline"
+version = "0.1.0"
+description = "财务月报自动化管道，多源对账 + 风险指标 + Excel 自动生成 + pytest 测试"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Xavier Chen", email = "chanxaviersy@gmail.com"},
+]
+readme = "README.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+markers = [
+    "integration: 集成测试（需要数据库）",
+]
+
+[tool.flake8]
+max-line-length = 120
+exclude = [".git", "__pycache__", "build", "dist", "data", "reports"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]

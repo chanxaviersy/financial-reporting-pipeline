@@ -1,3 +1,11 @@
+<!-- 徽章 -->
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![CI](https://github.com/chanxaviersy/financial-reporting-pipeline/actions/workflows/test.yml/badge.svg)](https://github.com/chanxaviersy/financial-reporting-pipeline/actions)
+[![Last Commit](https://img.shields.io/github/last-commit/chanxaviersy/financial-reporting-pipeline)](https://github.com/chanxaviersy/financial-reporting-pipeline)
+
+---
+
 # 金融数据自动化报表管道
 
 > 自动化 SQL/Python 报表工作流 + 数据治理 + 风险监控
