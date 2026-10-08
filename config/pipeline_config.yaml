@@ -1,0 +1,49 @@
+# 金融数据报表管道配置
+
+pipeline:
+  name: "Daily Operations Report"
+  version: "1.0.0"
+  description: "UBS 风格金融数据自动化报表管道"
+
+# 数据源配置
+sources:
+  trading_system:
+    type: "csv"
+    path: "data/trading_system.csv"
+    primary_key: "trade_id"
+  risk_system:
+    type: "csv"
+    path: "data/risk_system.csv"
+    primary_key: "trade_id"
+  crm:
+    type: "csv"
+    path: "data/crm.csv"
+    primary_key: "client_id"
+
+# 治理规则
+governance:
+  amount:
+    min_value: 0
+    max_value: 100000000  # 单笔最大 1 亿
+  trade_status:
+    allowed_values: ["SETTLED", "PENDING", "CANCELLED", "FAILED"]
+  date_range:
+    lookback_days: 90
+
+# 报表输出
+reporting:
+  excel_path: "reports/daily_report.xlsx"
+  html_email_path: "reports/email_draft.html"
+  audit_log_path: "reports/audit_log.csv"
+
+# 邮件收件人
+email:
+  recipients:
+    - "ops-team@bank.example.com"
+    - "risk-team@bank.example.com"
+
+# 风险告警阈值
+alerts:
+  single_trade_max_amount: 50000000  # 单笔 5000 万
+  client_concentration_pct: 0.30      # 单客户占比 30%
+  daily_pnl_volatility_pct: 0.15      # 日波动 15%
